@@ -51,8 +51,8 @@ def publish(client):
         else:
             exit(1)
         """
-        t=20
-        p=80
+        #t=20
+        #p=80
         if client.connected_flag: 
             result = client.publish(topic1, t)
             result2 = client.publish(topic2, p)
