@@ -55,10 +55,11 @@ def publish(client):
            status = result[0]
            if status == 0:
               print(f"Enviando dados para o Broker...", t, p)
+              print(f"Contador:", msg_count)
            else:
               print(f"Failed to send message to topic {topic}")
         msg_count += 1
-        print("end publish")
+        
 
 def run():
     
