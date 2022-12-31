@@ -3,13 +3,13 @@ import random
 import time
 from paho.mqtt import client as mqtt_client
 
-broker = '192.168.1.201'
+broker = '192.168.1.210'
 port = 1883
 topic = "belov/teste"
 # generate client ID with pub prefix randomly
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
-username = 'Casa'
-password = '12345678'
+username = 'CasaPendotiba'
+password = 'Casa12345678@#'
 
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
