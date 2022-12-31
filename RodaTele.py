@@ -13,15 +13,15 @@ from datetime import datetime
 
 
 sensor = ms5837.MS5837_30BA()
-broker = '192.168.1.201'
+broker = '192.168.1.210'
 port = 1883
 topic1 = "belov/barco01/tele01/temperatura"
 topic2 = "belov/barco01/tele01/profundidade"
 topic3 = "belov/barco01/tele01/pressao"
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
-username = 'Casa'
-password = '12345678'
+username = 'CasaPendotiba'
+password = 'Casa12345678@#'
 
 
 if not sensor.init():
