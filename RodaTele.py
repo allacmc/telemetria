@@ -1,15 +1,15 @@
 # python 3.6
 import sys
-#sys.path.insert(1, '/ms5837-python')
+sys.path.insert(1, '/ms5837-python')
 
 
 import random
 import time
-#import ms5837
+import ms5837
 import time
 from paho.mqtt import client as mqtt_client
 
-#sensor = ms5837.MS5837_30BA()
+sensor = ms5837.MS5837_30BA()
 broker = '192.168.1.210'
 port = 1883
 topic1 = "belov/barco01/tele01/temperatura"
