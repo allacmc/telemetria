@@ -42,7 +42,7 @@ def publish(client):
     msg_count = 0
     print("in publish")
     while True:
-        time.sleep(1)
+        time.sleep(500/1000)
         if sensor.read():
            p = sensor.depth()
            t = sensor.temperature()
