@@ -2,6 +2,8 @@
 import sys
 sys.path.insert(1, '/ms5837-python')
 
+# Versão 01
+
 
 import random
 import time
