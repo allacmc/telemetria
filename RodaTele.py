@@ -2,7 +2,7 @@
 import sys
 sys.path.insert(1, '/ms5837-python')
 
-# Versão 01
+# Versão 02
 
 
 import random
