@@ -15,6 +15,7 @@ port = 1883
 topic1 = "belov/barco01/tele01/temperatura"
 topic2 = "belov/barco01/tele01/profundidade"
 pinled = 8
+tempoEnvio = 500/1000
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'CasaPendotiba'
@@ -49,7 +50,7 @@ def publish(client):
     print("in publish")
     while True:
         GPIO.output(pinled, GPIO.LOW) # Turn off
-        time.sleep(500/1000)
+        time.sleep(tempoEnvio)
         if sensor.read():
            p = sensor.depth()
            t = sensor.temperature()
