@@ -2,10 +2,7 @@
 import sys
 sys.path.insert(1, '/ms5837-python')
 
-# Versão incluindo o GPIO
-
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
-
 import random
 import time
 import ms5837
@@ -17,6 +14,7 @@ broker = '192.168.1.210'
 port = 1883
 topic1 = "belov/barco01/tele01/temperatura"
 topic2 = "belov/barco01/tele01/profundidade"
+pinled = 8
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'CasaPendotiba'
@@ -25,7 +23,7 @@ password = 'Casa12345678@#'
 #Prepara os pinos fisicos do Led
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) 
+GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
 
 if not sensor.init():
         print("Sensor could not be initialized")
