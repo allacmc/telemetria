@@ -22,6 +22,11 @@ client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'CasaPendotiba'
 password = 'Casa12345678@#'
 
+#Prepara os pinos fisicos do Led
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) 
+
 if not sensor.init():
         print("Sensor could not be initialized")
         exit(1)
