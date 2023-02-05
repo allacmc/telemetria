@@ -48,7 +48,7 @@ def publish(client):
     msg_count = 0
     print("in publish")
     while True:
-        GPIO.output(8, GPIO.LOW) # Turn off
+        GPIO.output(pinled, GPIO.LOW) # Turn off
         time.sleep(500/1000)
         if sensor.read():
            p = sensor.depth()
@@ -62,7 +62,7 @@ def publish(client):
            status = result[0]
            if status == 0:
               print(f"Enviando dados para o Broker...", t, p)
-              GPIO.output(8, GPIO.HIGH) # Turn on
+              GPIO.output(pinled, GPIO.HIGH) # Turn on
               print(f"Contador:", msg_count)
            else:
               print(f"Failed to send message to topic {topic}")
