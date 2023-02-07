@@ -40,9 +40,9 @@ except:
     
 def led(status):
     if status == True:
-       GPIO.output(pinled, GPIO.HIGH) # Turn on
+       #GPIO.output(pinled, GPIO.HIGH) # Turn on
     else:
-       GPIO.output(pinled, GPIO.LOW) # Turn off
+       #GPIO.output(pinled, GPIO.LOW) # Turn off
     
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
