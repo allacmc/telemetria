@@ -73,9 +73,8 @@ def publish(client):
                print("Falha na conexão..")
         msg_count += 1
 
-def run():
-    
-    publish(client)
+#def run():
+#    publish(client)
 
 
 if __name__ == '__main__':
