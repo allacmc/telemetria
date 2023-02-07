@@ -94,5 +94,5 @@ if __name__ == '__main__':
             print("connection failed")
         time.sleep(5)
    
-    publish(client)
+    #publish(client)
     print("end")
