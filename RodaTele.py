@@ -74,10 +74,10 @@ if __name__ == '__main__':
     client.connected_flag=False
     while True:
         #try:
-            client.connect(broker, port)
+        client.connect(broker, port)
             #client.loop_start()
-            cliente.loop()
-            break
+        cliente.loop()
+        #break
         #except:
             print("connection failed")
         time.sleep(5)
