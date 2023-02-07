@@ -56,7 +56,6 @@ def publish(client):
            t = sensor.temperature()
         else:
            exit(1)
-        
         if client.connected_flag: 
            result = client.publish(topic1, t)
            result2 = client.publish(topic2, p)
