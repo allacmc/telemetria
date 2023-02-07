@@ -27,7 +27,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
 
 if not sensor.init():
-        print("Sensor could not be initialized")
+        print("sensor com problema")
         exit(1)
 
 def on_disconnect(client, userdata, rc):
@@ -41,7 +41,6 @@ def on_connect(client, userdata, flags, rc):
         print("Failed to connect, return code %d\n", rc)
         client.connected_flag=False
 def connect_mqtt():
-
     client.connect(broker, port)
     return client
 
