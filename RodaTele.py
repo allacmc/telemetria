@@ -73,9 +73,8 @@ def publish(client):
                print("Falha na conexão..")
         msg_count += 1
 
-#def run():
-#    publish(client)
-
+def run():
+    publish(client)
 
 if __name__ == '__main__':
     client = mqtt_client.Client(client_id)
@@ -94,4 +93,3 @@ if __name__ == '__main__':
         time.sleep(5)
    
     publish(client)
-    #print("end")
