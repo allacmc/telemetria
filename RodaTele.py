@@ -82,3 +82,6 @@ if __name__ == '__main__':
             print("Falha na conexão")
     publish(client)
     
+
+
+#teste
