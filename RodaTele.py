@@ -8,6 +8,7 @@ import time
 import ms5837
 import time
 from paho.mqtt import client as mqtt_client
+import logging
 
 sensor = ms5837.MS5837_30BA()
 broker = '192.168.1.210'
@@ -31,6 +32,7 @@ try:
        print("sensor com problema")
        exit(1)
 except:
+    logging.warning(f"Sensor com problema")
     print("Sensor com problema, verifique a conexão")
     exit(1)
         
