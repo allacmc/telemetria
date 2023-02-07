@@ -38,7 +38,7 @@ except:
     exit(1)
     
 def led(status):
-    if status == True
+    if status == True:
        GPIO.output(pinled, GPIO.HIGH) # Turn on
     else:
        GPIO.output(pinled, GPIO.LOW) # Turn off
