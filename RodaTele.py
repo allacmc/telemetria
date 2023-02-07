@@ -37,14 +37,6 @@ except:
     print("Sensor com problema, verifique a conexão")
     exit(1)
     
-def led(status):
-    if status == True:
-       #GPIO.output(pinled, GPIO.HIGH) # Turn on
-       print("HIGH")
-    else:
-       #GPIO.output(pinled, GPIO.LOW) # Turn off
-       print("low")
-    
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
    client.connected_flag=False
@@ -64,7 +56,7 @@ def publish(client):
     print("in publish")
     while True:
         #GPIO.output(pinled, GPIO.LOW) # Turn off
-        led(False)
+        led.status(False)
         time.sleep(tempoEnvio)
         if sensor.read():
            p = sensor.depth()
@@ -79,7 +71,7 @@ def publish(client):
            if status == 0:
               print(f"Enviando dados para o Broker...", t, p)
               #GPIO.output(pinled, GPIO.HIGH) # Turn on
-              led(True)  
+              led.status(True)  
               print(f"Contador:", msg_count)
            else:
               print(f"Failed to send message to topic {topic}")
