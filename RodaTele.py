@@ -66,8 +66,6 @@ def publish(client):
                   print(f"Contador:", msg_count)
                else:
                   print(f"Failed to send message to topic {topic}")
-               print("status da publicação:")
-               print(result)     
            except:
                print("Falha na conexão..")
         msg_count += 1
