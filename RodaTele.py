@@ -41,6 +41,9 @@ def on_connect(client, userdata, flags, rc):
     else:
         print("Failed to connect, return code %d\n", rc)
         client.connected_flag=False
+def on_publish(client, userdata, rc):
+   print("Mensagem chegou no MQTT")   
+    
 def publish(client):
     msg_count = 0
     print("in publish")
@@ -74,6 +77,7 @@ if __name__ == '__main__':
     client.username_pw_set(username, password)
     client.on_connect = on_connect
     client.on_disconnect=on_disconnect
+    client.on_publish =on_publish
     client.connected_flag=False
     while True:
         try:
