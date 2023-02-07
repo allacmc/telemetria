@@ -59,13 +59,8 @@ def publish(client):
            try: 
                result = client.publish(topic1, t)
                result2 = client.publish(topic2, p)
-               status = result[0]
-               if status == 0:
-                  print(f"Enviando dados para o Broker...", t, p)
-                  led.status(True)  
-                  print(f"Contador:", msg_count)
-               else:
-                  print(f"Failed to send message to topic {topic}")
+               print(f"Contador:", msg_count)     
+               led.status(True)       
            except:
                print("Falha na conexão..")
         msg_count += 1
