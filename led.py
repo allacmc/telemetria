@@ -1,6 +1,7 @@
-import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
-#Prepara os pinos fisicos do Led
+import RPi.GPIO as GPIO
+
+pinled = 8
+
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
-
