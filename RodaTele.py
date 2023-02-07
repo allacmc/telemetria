@@ -2,7 +2,7 @@
 import sys
 sys.path.insert(1, '/ms5837-python')
 
-import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+#import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import random
 import time
 import ms5837
@@ -25,9 +25,9 @@ username = 'CasaPendotiba'
 password = 'Casa12345678@#'
 
 #Prepara os pinos fisicos do Led
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
+#GPIO.setwarnings(False)
+#GPIO.setmode(GPIO.BOARD)
+#GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
 
 try:
     if not sensor.init():
