@@ -17,7 +17,6 @@ broker = '192.168.1.210'
 port = 1883
 topic1 = "belov/barco01/tele01/temperatura"
 topic2 = "belov/barco01/tele01/profundidade"
-pinled = 8
 tempoEnvio = 500/1000
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
