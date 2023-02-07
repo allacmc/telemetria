@@ -8,8 +8,8 @@ GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW)
 
 def status(status):
     if status == True:
-       #GPIO.output(pinled, GPIO.HIGH) # Turn on
-       print("HIGH")
+       GPIO.output(pinled, GPIO.HIGH) # Turn on
+       #print("HIGH")
     else:
-       #GPIO.output(pinled, GPIO.LOW) # Turn off
-       print("low")
+       GPIO.output(pinled, GPIO.LOW) # Turn off
+       #print("low")
