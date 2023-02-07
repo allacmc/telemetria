@@ -32,6 +32,7 @@ try:
        exit(1)
 except:
     print("Sensor com problema, verifique a conexão")
+    exit(1)
         
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
