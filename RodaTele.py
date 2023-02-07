@@ -9,7 +9,7 @@ import ms5837
 import time
 from paho.mqtt import client as mqtt_client
 import logging
-logging.basicConfig(filename = "telemetria.log", level = logging.DEBUG, format = "%(asctime)s :: %(levelno)s :: %(lineno)d")
+logging.basicConfig(filename = "telemetria.log", level = logging.DEBUG)
 
 sensor = ms5837.MS5837_30BA()
 broker = '192.168.1.210'
