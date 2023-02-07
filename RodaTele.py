@@ -41,10 +41,6 @@ def on_connect(client, userdata, flags, rc):
     else:
         print("Failed to connect, return code %d\n", rc)
         client.connected_flag=False
-def connect_mqtt():
-    client.connect(broker, port)
-    return client
-
 def publish(client):
     msg_count = 0
     print("in publish")
@@ -72,9 +68,6 @@ def publish(client):
            except:
                print("Falha na conexão..")
         msg_count += 1
-
-def run():
-    publish(client)
 
 if __name__ == '__main__':
     client = mqtt_client.Client(client_id)
