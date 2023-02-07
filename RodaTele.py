@@ -36,7 +36,13 @@ except:
     logging.warning(f"Sensor com problema")
     print("Sensor com problema, verifique a conexão")
     exit(1)
-        
+    
+def led(status):
+    if status == True
+       GPIO.output(pinled, GPIO.HIGH) # Turn on
+    else:
+       GPIO.output(pinled, GPIO.LOW) # Turn off
+    
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
    client.connected_flag=False
