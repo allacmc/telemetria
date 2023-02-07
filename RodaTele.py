@@ -75,8 +75,8 @@ if __name__ == '__main__':
     while True:
         try:
             client.connect(broker, port)
-            #client.loop_start()
-            cliente.loop()
+            client.loop_start()
+            #cliente.loop()
             break
         except:
             print("connection failed")
