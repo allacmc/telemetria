@@ -9,8 +9,6 @@ import ms5837
 import time
 from paho.mqtt import client as mqtt_client
 
-#teste
-
 sensor = ms5837.MS5837_30BA()
 broker = '192.168.1.210'
 port = 1883
