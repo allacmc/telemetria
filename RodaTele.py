@@ -58,7 +58,9 @@ def publish(client):
         if client.connected_flag: 
            try: 
                result = client.publish(topic1, t)
+               time.sleep(5)
                result2 = client.publish(topic2, p)
+               time.sleep(5)
                status = result[0]
                if status == 0:
                   print(f"Enviando dados para o Broker...", t, p)
