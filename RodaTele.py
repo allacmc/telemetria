@@ -2,7 +2,6 @@
 import sys
 sys.path.insert(1, '/ms5837-python')
 
-#import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import random
 import time
 import ms5837
