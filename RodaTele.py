@@ -73,14 +73,12 @@ if __name__ == '__main__':
     client.on_publish =on_publish
     client.connected_flag=False
     while True:
-        #try:
-        client.connect(broker, port)
+        try:
+            client.connect(broker, port)
             #client.loop_start()
-        cliente.loop()
-        #break
-        #except:
-            print("connection failed")
-        time.sleep(5)
-   
+            client.loop()
+            break
+        except:
+            print("Falha na conexão")
     publish(client)
     
