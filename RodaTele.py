@@ -26,10 +26,13 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
 
-if not sensor.init():
-        print("sensor com problema")
-        exit(1)
-
+try:
+    if not sensor.init():
+       print("sensor com problema")
+       exit(1)
+except:
+    print("Sensor com problema, verifique a conexão")
+        
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
    client.connected_flag=False
