@@ -23,11 +23,6 @@ client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'CasaPendotiba'
 password = 'Casa12345678@#'
 
-#Prepara os pinos fisicos do Led
-#GPIO.setwarnings(False)
-#GPIO.setmode(GPIO.BOARD)
-#GPIO.setup(pinled, GPIO.OUT, initial=GPIO.LOW) 
-
 try:
     if not sensor.init():
        print("sensor com problema")
@@ -55,7 +50,6 @@ def publish(client):
     msg_count = 0
     print("in publish")
     while True:
-        #GPIO.output(pinled, GPIO.LOW) # Turn off
         led.status(False)
         time.sleep(tempoEnvio)
         if sensor.read():
@@ -70,7 +64,6 @@ def publish(client):
            status = result[0]
            if status == 0:
               print(f"Enviando dados para o Broker...", t, p)
-              #GPIO.output(pinled, GPIO.HIGH) # Turn on
               led.status(True)  
               print(f"Contador:", msg_count)
            else:
