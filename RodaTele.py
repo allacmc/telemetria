@@ -81,8 +81,3 @@ if __name__ == '__main__':
         except:
             print("Falha na conexão")
     publish(client)
-    
-
-
-#teste
-#teste 2
