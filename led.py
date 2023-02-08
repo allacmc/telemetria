@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 
-pinled = 8
+pinled = 8 #pino que está plugado o led
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
