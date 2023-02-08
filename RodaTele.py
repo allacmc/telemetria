@@ -42,27 +42,28 @@ def on_connect(client, userdata, flags, rc):
         print("Failed to connect, return code %d\n", rc)
         client.connected_flag=False
 def on_publish(client, userdata, rc):
-   print("Mensagem chegou no MQTT")   
-    
+   print("Mensagem chegou no MQTT:", userdata)
+
 def publish(client):
     msg_count = 0
     print("in publish")
     while True:
         led.status(False)
         time.sleep(tempoEnvio)
-        if sensor.read():
-           p = sensor.depth()
-           t = sensor.temperature()
-        else:
-           exit(1)
-        if client.connected_flag: 
-           try: 
-               result = client.publish(topic1, t)
-               result2 = client.publish(topic2, p)
-               print(f"Contador:", msg_count)     
-               led.status(True)       
-           except:
-               print("Falha na conexão..")
+        try:
+            if sensor.read():
+               p = sensor.depth()
+               t = sensor.temperature()
+            else:
+               exit(1)
+        except:
+            print("Erro de leitura no sensor")
+
+        if client.connected_flag:
+           result = client.publish(topic1, t)
+           result2 = client.publish(topic2, p)
+           print(f"Contador:", msg_count, t, p)
+           led.status(True)
         msg_count += 1
 
 if __name__ == '__main__':
