@@ -10,17 +10,32 @@ from paho.mqtt import client as mqtt_client
 import logging
 logging.basicConfig(filename = "telemetria.log", level = logging.DEBUG)
 import led
+import json
 
-sensor = ms5837.MS5837_30BA()
-broker = '192.168.1.210'
-port = 1883
-topic1 = "belov/barco01/tele01/temperatura"
-topic2 = "belov/barco01/tele01/profundidade"
-tempoEnvio = 500/1000
+#Pegas as informações sobre conexão no arquivo json config.json e coloca dentro das variaveis.
+config = json.load(open('config.json', 'r'))
+print ("Dados do Arquivo de Configuração - config.json")
+print (config['broker'])
+print (config['port'])
+print (config['topic1'])
+print (config['topic2'])
+print (config['username'])
+print (config['password'])
+print (config['tempoEnvio'])
+print (config['DensidadeFluido'])
+
+broker = config['broker']
+port = config['port']
+topic1 = config['topic1']
+topic2 = config['topic2']
+username = config['username']
+password = config['password']
+tempoEnvio = config['tempoEnvio']
+dFluido = config['DensidadeFluido']
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
-username = 'CasaPendotiba'
-password = 'Casa12345678@#'
+sensor = ms5837.MS5837_30BA()
+sensor.setFluidDensity(dFluido)
 
 try:
     if not sensor.init():
@@ -28,9 +43,10 @@ try:
        exit(1)
 except:
     logging.warning(f"Sensor com problema")
+
     print("Sensor com problema, verifique a conexão")
     exit(1)
-    
+
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
    client.connected_flag=False
