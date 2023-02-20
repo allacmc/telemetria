@@ -13,7 +13,7 @@ import led
 import json
 
 #Pegas as informações sobre conexão no arquivo json config.json e coloca dentro das variaveis.
-config = json.load(open('config.json', 'r'))
+config = json.load(open('/telemetria/config.json', 'r'))
 print ("Dados do Arquivo de Configuração - config.json")
 print (config['broker'])
 print (config['port'])
