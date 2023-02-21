@@ -6,5 +6,6 @@
 "tempoEnvio": 0.5,
 "username":"CasaPendotiba",
 "password":"Casa12345678@#",
-"DensidadeFluido":1029
+"DensidadeFluido":1029,
+"pinLed":16
 }

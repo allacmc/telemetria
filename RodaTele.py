@@ -23,6 +23,7 @@ print (config['username'])
 print (config['password'])
 print (config['tempoEnvio'])
 print (config['DensidadeFluido'])
+print (config['pinLed'])
 
 broker = config['broker']
 port = config['port']
