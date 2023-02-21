@@ -53,13 +53,14 @@ def on_disconnect(client, userdata, rc):
    client.connected_flag=False
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
-        print("Connected to MQTT Broker!")
+        print("Connected to MQTT Broker!", rc)
         client.connected_flag=True
     else:
         print("Failed to connect, return code %d\n", rc)
         client.connected_flag=False
 def on_publish(client, userdata, rc):
-   print("Mensagem chegou no MQTT:", userdata)
+   print("Mensagem chegou no MQTT")
+   #led.status(True)
 
 def publish(client):
     msg_count = 0
@@ -77,19 +78,20 @@ def publish(client):
             print("Erro de leitura no sensor")
 
         if client.connected_flag:
-           result = client.publish(topic1, t)
-           result2 = client.publish(topic2, p)
-           print(f"Contador:", msg_count, t, p)
+           client.publish(topic1, t, 0)
+           client.publish(topic2, p, 0)
+           print(f"Contador:", msg_count, "Temp: {:.2f}".format(t)," /  Prof: {:.2f}".format(p))
            led.status(True)
+           time.sleep(tempoEnvio)
         msg_count += 1
 
 if __name__ == '__main__':
     client = mqtt_client.Client(client_id)
     client.username_pw_set(username, password)
     client.on_connect = on_connect
-    client.on_disconnect=on_disconnect
-    client.on_publish =on_publish
-    client.connected_flag=False
+    client.on_disconnect = on_disconnect
+    client.on_publish = on_publish
+    client.connected_flag = False
     while True:
         try:
             client.connect(broker, port)
