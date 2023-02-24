@@ -32,6 +32,7 @@ topic2 = config['topic2']
 username = config['username']
 password = config['password']
 tempoEnvio = config['tempoEnvio']
+tempoEnvio = tempoEnvio / 2
 dFluido = config['DensidadeFluido']
 
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
@@ -44,13 +45,13 @@ try:
        exit(1)
 except:
     logging.warning(f"Sensor com problema")
-
     print("Sensor com problema, verifique a conexão")
     exit(1)
 
 def on_disconnect(client, userdata, rc):
    print("client disconnected ok")
    client.connected_flag=False
+
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT Broker!", rc)
@@ -64,10 +65,10 @@ def on_publish(client, userdata, rc):
 
 def publish(client):
     msg_count = 0
-    print("in publish")
+    print("Comeca publicacao")
     while True:
-        led.status(False)
-        time.sleep(tempoEnvio)
+        #led.status(False)
+        #time.sleep(tempoEnvio)
         try:
             if sensor.read():
                p = sensor.depth()
@@ -77,12 +78,16 @@ def publish(client):
         except:
             print("Erro de leitura no sensor")
 
-        if client.connected_flag:
+        if client.connected_flag==True:
            client.publish(topic1, t, 0)
            client.publish(topic2, p, 0)
            print(f"Contador:", msg_count, "Temp: {:.2f}".format(t)," /  Prof: {:.2f}".format(p))
+           led.status(False)
+           time.sleep(tempoEnvio)
            led.status(True)
            time.sleep(tempoEnvio)
+        else:
+           print ("Desconectado...")
         msg_count += 1
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@
 "port": 1883,
 "topic1":"belov/barco01/tele01/temperatura",
 "topic2":"belov/barco01/tele01/profundidade",
-"tempoEnvio": 0.25,
+"tempoEnvio": 0.5,
 "username":"CasaPendotiba",
 "password":"Casa12345678@#",
 "DensidadeFluido":1029,
